@@ -1,9 +1,14 @@
-<div class="form-container">
-  <mat-form-field class="full-width">
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </mat-form-field>
-
-  <mat-form-field class="full-width">
-    <textarea matInput placeholder="Leave a comment"></textarea>
-  </mat-form-field>
-</div>
+<form [formGroup]="directorForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <mat-form-field class="full-width">
+      <input matInput name="first-name" formControlName="firstName" placeholder="First name">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput name="last-name" formControlName="lastName" placeholder="Last name">
+    </mat-form-field>
+    <button [disabled]="!directorForm.valid" mat-raised-button color="primary" type="submit">Send</button>
+    <p>
+      Form Status: {{ directorForm.status }}
+    </p>
+  </div>
+</form>
