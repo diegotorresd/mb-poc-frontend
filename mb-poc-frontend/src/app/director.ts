@@ -1,3 +1,3 @@
 export class Director {
-  constructor (public firstName: String, public lastName: String) {}
+  constructor (public id: String, public firstName: String, public lastName: String) {}
 }

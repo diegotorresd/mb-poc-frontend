@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col s6">
-      <mat-card>
-        <mat-card-title>{{ director.firstName }}</mat-card-title>
-        <app-director [director]="director"></app-director>
+      <mat-card *ngFor="let director of director$ | async; trackBy: trackById">
+        <mat-card-title>{{ director.firstName }} {{ director.lastName }}</mat-card-title>
+        <app-director [director]="director" [subject]="subject"></app-director>
       </mat-card>
     </div>
   </div>
