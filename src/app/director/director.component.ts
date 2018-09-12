@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { Director } from '../director';
+import { Component, Input, OnInit } from '@angular/core'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Subject } from 'rxjs'
+import { Director } from '../director'
 
 @Component({
   selector: 'app-director',

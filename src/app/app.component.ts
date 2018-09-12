@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Director } from './director';
-import { Subject, of } from 'rxjs';
+import { Component } from '@angular/core'
+import { Director } from './director'
+import { Subject, of } from 'rxjs'
 
 @Component({
   selector: 'app-root',
