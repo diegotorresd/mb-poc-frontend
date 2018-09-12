@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { DirectorComponent } from './director/director.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
     ReactiveFormsModule
   ],
   providers: [],
