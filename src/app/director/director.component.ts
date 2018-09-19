@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Subject } from 'rxjs'
+import { switchMap } from 'rxjs/operators'
 import { Director } from '../director'
+import { DirectorService } from '../director.service';
 
 @Component({
   selector: 'app-director',
@@ -9,21 +11,22 @@ import { Director } from '../director'
   styleUrls: ['./director.component.css']
 })
 export class DirectorComponent implements OnInit {
-  // TODO it should be possible to just use the Subject and subscribe to it
-  @Input() director: Director
-  @Input() subject: Subject<Director>
+  @Input() directorId: String
+  private directorService: DirectorService
 
   directorForm: FormGroup = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl(''),
   })
 
+  constructor (directorService: DirectorService) {
+    this.directorService = directorService
+  }
+
   ngOnInit() {
-    this.directorForm.patchValue(this.director)
-    // TODO is it possible to hook the valueChanges observable
-    // to the Subject without subscribing to it here?
-    this.directorForm.valueChanges.subscribe(v => {
-      this.subject.next(new Director(this.director.id, v.firstName, v.lastName))
-    })
+    this.directorService.getDirector(this.directorId).subscribe(function (director) {
+      console.log('subscribe', director.id)
+      this.directorForm.patchValue(director)
+    }.bind(this))
   }
 }
